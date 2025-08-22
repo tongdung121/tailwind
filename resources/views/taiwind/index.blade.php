@@ -60,5 +60,27 @@
             thuật số, xóa phông, tự động lấy nét, quay chậm và chế độ ban đêm. Camera trước 12 MP với tính năng làm đẹp
             thông minh giúp bạn tự tin tỏa sáng trong mọi khung hình selfie.
         </h3>
+        <table class="min-w-full border border-gray-300">
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-4 py-2 text-left">Tên</th>
+                    <th class="px-4 py-2 text-left">Tuổi</th>
+                    <th class="px-4 py-2 text-left">Thành phố</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-t">
+                    <td class="px-4 py-2">Tuyết Sương</td>
+                    <td class="px-4 py-2">28</td>
+                    <td class="px-4 py-2">Hà Nội</td>
+                </tr>
+                <tr class="border-t bg-gray-50">
+                    <td class="px-4 py-2">Ngọc</td>
+                    <td class="px-4 py-2">30</td>
+                    <td class="px-4 py-2">Hồ Chí Minh</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 @endsection
