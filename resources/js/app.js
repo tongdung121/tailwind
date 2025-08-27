@@ -4,7 +4,6 @@ import 'swiper/css/bundle';
 
 // Khởi tạo Swiper
 document.addEventListener("DOMContentLoaded", () => {
-    console.log('---1-----');
     new Swiper(".mySwiper", {
         loop: true,
         speed: 1500,
