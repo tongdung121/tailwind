@@ -1,8 +1,12 @@
 <div class="swiper mySwiper w-full mx-auto">
     <div class="swiper-wrapper">
-        <div class="swiper-slide flex items-center justify-center bg-yellow-500 text-white text-xl h-450">Slide 1</div>
-        <div class="swiper-slide flex items-center justify-center bg-green-500 text-white text-xl h-450">Slide 2</div>
-        <div class="swiper-slide flex items-center justify-center bg-red-500 text-white text-xl h-450">Slide 3</div>
+        @foreach ($slides as $item)
+            <div class="swiper-slide flex items-center justify-center w-full">
+                <div class="aspect-[1920/500]">
+                    <img src="{{ asset('uploads/slides/' . $item->image) }}" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        @endforeach
     </div>
 
     <!-- Nút điều hướng -->

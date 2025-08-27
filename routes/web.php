@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SlideController;
 use App\Http\Controllers\TaiwindController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,6 @@ Route::domain('api.local')->group(function () {
         return 'Hello from api.local';
     });
 });
+
+Route::get('/create', [SlideController::class, 'create'])->name('slides.create');
+Route::post('/store', [SlideController::class, 'store'])->name('slides.store');
