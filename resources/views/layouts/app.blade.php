@@ -6,13 +6,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Tailwind')</title>
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 <body class="min-h-screen flex flex-col">
     <!-- Header -->
     <div class="header bg-blue-500 text-white p-4">
         Header
     </div>
-
+    <x-slide />
     <!-- Content -->
     <div class="content flex-1 p-4">
         @yield('content')
