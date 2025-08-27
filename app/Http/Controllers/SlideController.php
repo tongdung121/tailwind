@@ -39,7 +39,6 @@ class SlideController extends Controller
             $slide->type = $request->input('type');
             $slide->save();
         } catch (\Exception $e) {
-            dd($e->getMessage());
             return redirect()->back()->with('error', 'Failed to create slide: ' . $e->getMessage());
         }
 
