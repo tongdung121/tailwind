@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [TaiwindController::class, 'index'])->name('taiwind.index');
 Route::get('/landing', [TaiwindController::class, 'landing'])->name('taiwind.landing');
 
-Route::domain('storage.local')->group(function () {
+Route::domain('vini.test')->group(function () {
     Route::get('/', function () {
         return 'Hello from storage.local';
     });
