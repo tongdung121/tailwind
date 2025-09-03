@@ -5,6 +5,7 @@ use App\Http\Controllers\TaiwindController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TaiwindController::class, 'index'])->name('taiwind.index');
+Route::get('/landing', [TaiwindController::class, 'landing'])->name('taiwind.landing');
 
 Route::domain('storage.local')->group(function () {
     Route::get('/', function () {

@@ -10,4 +10,9 @@ class TaiwindController extends Controller
     {
         return view('taiwind.index');
     }
+
+    public function landing()
+    {
+        return view('taiwind.landing');
+    }
 }
