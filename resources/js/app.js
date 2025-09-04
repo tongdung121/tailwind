@@ -36,5 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// tính chiều rồng cho phần hiển thị w-calcul
+// lấy chiều cao của cửa sổ trình duyệt
+
+const windowHeight = window.innerHeight;
+// số để nhân không thay đổi
+const factor = 1.2;
+// tính chiều rộng với chiều cao màn hình.
+const calculatedWidth = windowHeight * factor;
+// áp dụng chiều rộng tính được cho các phần tử có class .w-calcul
+const elements = document.querySelectorAll('.w-calcul');
+elements.forEach(element => {
+    element.style.width = `${calculatedWidth}px`;
+});
+
 
 
