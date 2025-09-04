@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TaiwindController::class, 'index'])->name('taiwind.index');
 Route::get('/landing', [TaiwindController::class, 'landing'])->name('taiwind.landing');
+Route::get('/landing2', [TaiwindController::class, 'landing2'])->name('taiwind.landing2');
 
 Route::domain('vini.test')->group(function () {
     Route::get('/', function () {

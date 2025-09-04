@@ -11,7 +11,10 @@
 </head>
 
 <body>
-    <div id="fullpage">
+    <header id="header" class="fixed top-0 left-0 w-full h-[115px] bg-white z-50 shadow flex items-center px-6">
+        <h1 class="text-xl font-bold">Header</h1>
+    </header>
+    <div id="fullpage2">
         <div class="section">
             <div class="flex h-screen w-full">
                 <div class="w-3/5 h-screen">

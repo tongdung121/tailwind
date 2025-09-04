@@ -4,6 +4,68 @@ import 'swiper/css/bundle';
 import fullpage from 'fullpage.js';
 import 'fullpage.js/dist/fullpage.css';
 
+// Khởi tạo fullPage khi DOM ready
+document.addEventListener("DOMContentLoaded", () => {
+    const fullPage = document.getElementById('fullpage');
+    const fullPage2 = document.getElementById('fullpage2');
+
+    if (fullPage) {
+        new fullpage('#fullpage', {
+            licenseKey: 'gplv3-license', // 🔑 thêm dòng này
+            autoScrolling: true,
+            fitToSection: true,
+            scrollBar: false, // ẩn thanh scrollbar
+            scrollOverflow: false,
+            scrollOverflowReset: false,
+            scrollOverflowOptions: null,
+            anchors: ['section1', 'section2', 'section3'],
+            scrollingSpeed: 700,
+            afterRender: function () {
+                new Swiper(".mySwiperFull", {
+                    loop: true,
+                    speed: 1500,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            },
+        });
+    }
+
+    if (fullPage2) {
+        new fullpage('#fullpage2', {
+            licenseKey: 'gplv3-license', // 🔑 thêm dòng này
+            autoScrolling: true,
+            fitToSection: true,
+            scrollBar: false, // ẩn thanh scrollbar
+            scrollOverflow: false,
+            scrollOverflowReset: false,
+            scrollOverflowOptions: null,
+            anchors: ['section1', 'section2', 'section3'],
+            scrollingSpeed: 700,
+            fixedElements: '#header',
+            afterRender: function () {
+                new Swiper(".mySwiperFull", {
+                    loop: true,
+                    speed: 1500,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            },
+        });
+    }
+});
 // Khởi tạo Swiper
 document.addEventListener("DOMContentLoaded", () => {
     const swiperThumbs = new Swiper(".mySwiperThumbs", {
@@ -31,18 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
         thumbs: {
             swiper: swiperThumbs,
         },
-    });
-    // Khởi tạo fullPage khi DOM ready
-    new fullpage('#fullpage', {
-        licenseKey: 'gplv3-license', // 🔑 thêm dòng này
-        autoScrolling: true,
-        fitToSection: true,
-        scrollBar: false, // ẩn thanh scrollbar
-        scrollOverflow: false,
-        scrollOverflowReset: false,
-        scrollOverflowOptions: null,
-        anchors: ['section1', 'section2', 'section3'],
-        scrollingSpeed: 700,
     });
 });
 
