@@ -6,6 +6,13 @@ import 'fullpage.js/dist/fullpage.css';
 
 // Khởi tạo Swiper
 document.addEventListener("DOMContentLoaded", () => {
+    const swiperThumbs = new Swiper(".mySwiperThumbs", {
+        spaceBetween: 10,
+        slidesPerView: 4,   // 👉 số ảnh nhỏ tối đa hiển thị
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+
     new Swiper(".mySwiper", {
         loop: true,
         speed: 1500,
@@ -17,9 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+        // pagination: {
+        //     el: '.swiper-pagination',
+        //     clickable: true,
+        // },
+        thumbs: {
+            swiper: swiperThumbs,
         },
     });
     // Khởi tạo fullPage khi DOM ready

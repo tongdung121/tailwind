@@ -14,3 +14,14 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
+<!-- Ảnh nhỏ (thumbnail) -->
+<div class="swiper mySwiperThumbs w-full h-[100px]">
+    <div class="swiper-wrapper">
+        @foreach ($slides as $item)
+            <div class="swiper-slide w-[100px] cursor-pointer">
+                <img src="{{ asset('uploads/slides/' . $item->image) }}"
+                    class="w-full h-full object-cover rounded-md" />
+            </div>
+        @endforeach
+    </div>
+</div>
