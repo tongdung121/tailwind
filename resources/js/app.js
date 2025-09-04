@@ -4,6 +4,7 @@ import 'swiper/css/bundle';
 import fullpage from 'fullpage.js';
 import 'fullpage.js/dist/fullpage.css';
 
+
 // Khởi tạo fullPage khi DOM ready
 document.addEventListener("DOMContentLoaded", () => {
     const fullPage = document.getElementById('fullpage');
@@ -62,10 +63,30 @@ document.addEventListener("DOMContentLoaded", () => {
                         prevEl: '.swiper-button-prev',
                     },
                 });
+                resizeSections();
+            },
+            afterResize: function () {
+                resizeSections();
             },
         });
     }
+    function resizeSections() {
+        const headerHeight = document.querySelector('#header').offsetHeight;
+        const vh = window.innerHeight;
+        const newHeight = vh - headerHeight;
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.height = newHeight + 'px';
+
+            // fullpage.js dùng .fp-tableCell bên trong section
+            const tableCell = section.querySelector('.fp-tableCell');
+            if (tableCell) {
+                tableCell.style.height = newHeight + 'px';
+            }
+        });
+    }
 });
+
 // Khởi tạo Swiper
 document.addEventListener("DOMContentLoaded", () => {
     const swiperThumbs = new Swiper(".mySwiperThumbs", {
