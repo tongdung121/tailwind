@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.querySelectorAll('.section').forEach(section => {
             section.style.height = newHeight + 'px';
-            console.log('section resized:', section, newHeight);
         });
     }
 });
