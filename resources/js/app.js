@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollOverflow: false,
             scrollOverflowReset: false,
             scrollOverflowOptions: null,
-            anchors: ['section1', 'section2', 'section3'],
+            // anchors: ['section1', 'section2', 'section3'],
             scrollingSpeed: 700,
             afterRender: function () {
                 new Swiper(".mySwiperFull", {
@@ -43,14 +43,20 @@ document.addEventListener("DOMContentLoaded", () => {
             licenseKey: 'gplv3-license', // 🔑 thêm dòng này
             autoScrolling: true,
             fitToSection: true,
+            fitToSectionDelay: 1000,
             scrollBar: false, // ẩn thanh scrollbar
             scrollOverflow: false,
             scrollOverflowReset: false,
             scrollOverflowOptions: null,
-            anchors: ['section1', 'section2', 'section3'],
+            offsetSections: false,
+            // anchors: ['section1', 'section2', 'section3'],
             scrollingSpeed: 700,
             fixedElements: '#header',
+            sectionSelector: '.section',
+            slideSelector: '.slide',
+            lazyLoading: true,
             afterRender: function () {
+                resizeSections();
                 new Swiper(".mySwiperFull", {
                     loop: true,
                     speed: 1500,
@@ -63,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         prevEl: '.swiper-button-prev',
                     },
                 });
-                resizeSections();
             },
             afterResize: function () {
                 resizeSections();
@@ -77,12 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.querySelectorAll('.section').forEach(section => {
             section.style.height = newHeight + 'px';
-
-            // fullpage.js dùng .fp-tableCell bên trong section
-            const tableCell = section.querySelector('.fp-tableCell');
-            if (tableCell) {
-                tableCell.style.height = newHeight + 'px';
-            }
+            console.log('section resized:', section, newHeight);
         });
     }
 });

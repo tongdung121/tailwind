@@ -16,8 +16,8 @@
     </header>
     <div id="fullpage2">
         <div class="section">
-            <div class="flex h-screen w-full">
-                <div class="w-3/5 h-screen">
+            <div class="flex w-full">
+                <div class="w-3/5">
                     <img src="{{ asset('images/1.webp') }}" class="aspect-[1152/953] h-full" alt="">
                 </div>
                 <div class="w-2/5 flex flex-col justify-center p-8">
@@ -31,7 +31,7 @@
         </div>
 
         <div class="section">
-            <div class="flex h-screen w-full">
+            <div class="flex w-full">
                 <div class="w-2/5 flex flex-col justify-center p-8">
                     <h1 class="text-5xl font-bold mb-4">Welcome to Our Landing Page</h1>
                     <p class="mb-6">
@@ -39,7 +39,7 @@
                         sections.
                     </p>
                 </div>
-                <div class="w-3/5 h-screen swiper mySwiperFull mx-auto">
+                <div class="w-3/5 swiper mySwiperFull mx-auto">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="{{ asset('images/1.webp') }}" class="aspect-[1152/953] h-full" alt="">
