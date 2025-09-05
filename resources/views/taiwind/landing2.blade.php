@@ -39,10 +39,10 @@
                         sections.
                     </p>
                 </div>
-                <div class="w-3/5 swiper mySwiperFull mx-auto">
+                <div class="w-3/5 swiper mySwiperFull mx-auto tw-right">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="{{ asset('images/1.webp') }}" class="aspect-[1152/953] h-full" alt="">
+                            <img src="{{ asset('images/1.webp') }}" class="aspect-[1152/953] h-full image" alt="">
                         </div>
                         <div class="swiper-slide">
                             <img src="{{ asset('images/2.jpg') }}" class="aspect-[1152/953] h-full" alt="">

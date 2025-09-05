@@ -147,5 +147,9 @@ elements.forEach(element => {
     element.style.width = `${calculatedWidth}px`;
 });
 
+// lắng nghe sự kiện thay đổi kích thước cửa sổ để cập nhật lại chiều rộng
+const imageW = document.querySelector('.image').clientWidth;
+console.log(imageW);
+
 
 
