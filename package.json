@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "fullpage.js": "^4.0.37",
+        "jquery": "^3.7.1",
         "swiper": "^11.2.10"
     }
 }
