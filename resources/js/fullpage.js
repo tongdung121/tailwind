@@ -5,10 +5,10 @@ import 'swiper/css/bundle';
 
 // Khởi tạo fullPage khi DOM ready
 document.addEventListener("DOMContentLoaded", () => {
-    const fullPage = document.getElementById('fullpage');
+    const fullPage1 = document.getElementById('fullpage');
     const fullPage2 = document.getElementById('fullpage2');
 
-    if (fullPage) {
+    if (fullPage1) {
         new fullpage('#fullpage', {
             // licenseKey: 'gplv3-license', // 🔑 thêm dòng này
             autoScrolling: true,
