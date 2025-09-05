@@ -55,10 +55,10 @@
                     <div class="swiper mySwiperThumbs h-[100px] !absolute bottom-2 left-0 right-0 mx-auto">
                         <div class="swiper-wrapper flex items-center justify-center gap-2">
                             <div class="swiper-slide !w-[100px] !h-[100px]">
-                                <img src="{{ asset('images/1.webp') }}" class="w-full h-full" alt="">
+                                <img src="{{ asset('images/1.webp') }}" class="w-full h-full rounded" alt="">
                             </div>
                             <div class="swiper-slide !w-[100px] !h-[100px]">
-                                <img src="{{ asset('images/2.jpg') }}" class="w-full h-full" alt="">
+                                <img src="{{ asset('images/2.jpg') }}" class="w-full h-full rounded" alt="">
                             </div>
                         </div>
                     </div>
