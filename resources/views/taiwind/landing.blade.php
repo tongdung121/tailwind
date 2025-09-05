@@ -36,7 +36,7 @@
                         sections.
                     </p>
                 </div>
-                <div class="w-3/5 h-screen swiper mySwiperFull mx-auto">
+                <div class="w-3/5 h-screen swiper mySwiperFull mx-auto ml-auto">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img src="{{ asset('images/1.webp') }}" class="aspect-[1152/953] h-full" alt="">
