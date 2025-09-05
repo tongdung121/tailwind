@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (fullPage) {
         new fullpage('#fullpage', {
-            licenseKey: 'gplv3-license', // 🔑 thêm dòng này
+            // licenseKey: 'gplv3-license', // 🔑 thêm dòng này
             autoScrolling: true,
             fitToSection: true,
             scrollBar: false, // ẩn thanh scrollbar
@@ -19,6 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollOverflowOptions: null,
             // anchors: ['section1', 'section2', 'section3'],
             scrollingSpeed: 700,
+            credits: { enabled: false },
+            fixedElements: '#header',
+            sectionSelector: '.section',
+            slideSelector: '.slide',
+            lazyLoading: true,
             afterRender: function () {
                 const swiperThumbs = new Swiper(".mySwiperThumbs", {
                     spaceBetween: 10,
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (fullPage2) {
         new fullpage('#fullpage2', {
-            licenseKey: 'gplv3-license', // 🔑 thêm dòng này
+            licenseKey: 'gplv3', // 🔑 thêm dòng này
             autoScrolling: true,
             fitToSection: true,
             fitToSectionDelay: 1000,
@@ -58,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             offsetSections: false,
             // anchors: ['section1', 'section2', 'section3'],
             scrollingSpeed: 700,
+            credits: { enabled: false },
             fixedElements: '#header',
             sectionSelector: '.section',
             slideSelector: '.slide',
