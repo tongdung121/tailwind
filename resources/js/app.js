@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 new Swiper(".mySwiperFull", {
                     loop: true,
                     speed: 1500,
+                    effect: 'fade', // 👈 mờ mượt thay vì lướt cứng
+                    fadeEffect: {
+                        crossFade: true, // 👈 chuyển mượt giữa ảnh cũ và mới
+                    },
                     autoplay: {
                         delay: 3000,
                         disableOnInteraction: false,
@@ -60,6 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 new Swiper(".mySwiperFull", {
                     loop: true,
                     speed: 1500,
+                    effect: 'fade', // 👈 mờ mượt thay vì lướt cứng
+                    fadeEffect: {
+                        crossFade: true, // 👈 chuyển mượt giữa ảnh cũ và mới
+                    },
                     autoplay: {
                         delay: 3000,
                         disableOnInteraction: false,
@@ -98,6 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
     new Swiper(".mySwiper", {
         loop: true,
         speed: 1500,
+        effect: 'fade', // 👈 mờ mượt thay vì lướt cứng
+        fadeEffect: {
+            crossFade: true, // 👈 chuyển mượt giữa ảnh cũ và mới
+        },
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
