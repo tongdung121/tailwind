@@ -22,6 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // anchors: ['section1', 'section2', 'section3'],
             scrollingSpeed: 700,
             afterRender: function () {
+                const swiperThumbs = new Swiper(".mySwiperThumbs", {
+                    spaceBetween: 10,
+                    slidesPerView: 4,   // 👉 số ảnh nhỏ tối đa hiển thị
+                    freeMode: true,
+                    watchSlidesProgress: true,
+                });
                 new Swiper(".mySwiperFull", {
                     loop: true,
                     speed: 1500,
@@ -33,9 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         delay: 3000,
                         disableOnInteraction: false,
                     },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                    thumbs: {
+                        swiper: swiperThumbs,
                     },
                 });
             },
