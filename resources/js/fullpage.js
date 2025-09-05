@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (fullPage2) {
         new fullpage('#fullpage2', {
-            licenseKey: 'gplv3', // 🔑 thêm dòng này
+            licenseKey: 'gplv3-license', // 🔑 thêm dòng này
             autoScrolling: true,
             fitToSection: true,
             fitToSectionDelay: 1000,
