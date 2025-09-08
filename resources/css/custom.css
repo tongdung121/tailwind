@@ -71,3 +71,7 @@
         transform: rotate(360deg);
     }
 }
+
+.swiper-slide-thumb-active img {
+    @apply border-3 border-blue-500 rounded;
+}
