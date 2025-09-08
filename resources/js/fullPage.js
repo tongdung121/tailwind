@@ -56,10 +56,10 @@ $(document).ready(function () {
     if (fullPage2.length) {
         new fullpage('#fullpage2', {
             licenseKey: 'gplv3-license', // 🔑 thêm dòng này
-            css3: true,
+            css3: false,
             autoScrolling: true,
             fitToSection: true,
-            fitToSectionDelay: 2000,
+            fitToSectionDelay: 1000,
             scrollBar: false, // ẩn thanh scrollbar
             scrollOverflow: false,
             scrollOverflowReset: false,
@@ -67,7 +67,6 @@ $(document).ready(function () {
             offsetSections: false,
             // anchors: ['section1', 'section2', 'section3'],
             scrollingSpeed: 700,
-            credits: { enabled: false },
             fixedElements: '#header',
             lazyLoading: true,
             paddingTop: '0',
@@ -81,7 +80,6 @@ $(document).ready(function () {
             afterRender: function () {
                 setTimeout(() => {
                     resizeSections();
-
                 }, 1000);
                 setTimeout(() => {
                     $("#loading").css("display", "none");
