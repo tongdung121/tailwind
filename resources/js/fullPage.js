@@ -1,16 +1,19 @@
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 import fullpage from 'fullpage.js';
 import 'fullpage.js/dist/fullpage.css';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
-// Khởi tạo fullPage khi DOM ready
-document.addEventListener("DOMContentLoaded", () => {
-    const fullPage1 = document.getElementById('fullpage');
-    const fullPage2 = document.getElementById('fullpage2');
 
-    if (fullPage1) {
+// Khởi tạo fullPage khi DOM ready
+$(document).ready(function () {
+    const fullPage1 = $('#fullpage');
+    const fullPage2 = $('#fullpage2');
+
+    if (fullPage1.length) {
         new fullpage('#fullpage', {
-            // licenseKey: 'gplv3-license', // 🔑 thêm dòng này
+            licenseKey: 'gplv3-license', // 🔑 thêm dòng này
             autoScrolling: true,
             fitToSection: true,
             scrollBar: false, // ẩn thanh scrollbar
@@ -50,9 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (fullPage2) {
+    if (fullPage2.length) {
         new fullpage('#fullpage2', {
             licenseKey: 'gplv3-license', // 🔑 thêm dòng này
+            css3: true,
             autoScrolling: true,
             fitToSection: true,
             fitToSectionDelay: 1000,
@@ -65,11 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollingSpeed: 700,
             credits: { enabled: false },
             fixedElements: '#header',
-            sectionSelector: '.section',
-            slideSelector: '.slide',
             lazyLoading: true,
+            paddingTop: '0',
+            paddingBottom: '0',
+            responsiveWidth: '0',
+            responsiveHeight: '0',
+            responsiveSlides: false,
+            easingcss3: 'ease',
+            loopBottom: false,
+            loopTop: false,
             afterRender: function () {
-                resizeSections();
+                setTimeout(() => {
+                    resizeSections();
+                }, 1000);
                 new Swiper(".mySwiperFull", {
                     loop: true,
                     speed: 1500,
@@ -88,17 +100,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             },
             afterResize: function () {
-                resizeSections();
             },
         });
     }
+
     function resizeSections() {
         const headerHeight = document.querySelector('#header').offsetHeight;
         const vh = window.innerHeight;
         const newHeight = vh - headerHeight;
 
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.height = newHeight + 'px';
+        document.querySelectorAll('.section').forEach((section, index) => {
+            section.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
+            // Tìm phần tử con có class "image"
+            const imageEls = section.querySelectorAll('.image');
+            if (imageEls.length) {
+                const ratio = 1152 / newHeight;
+                imageEls.forEach(imageEl => {
+                    imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                });
+            }
         });
     }
+
 });

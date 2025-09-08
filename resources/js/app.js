@@ -1,8 +1,6 @@
 import './bootstrap';
-import $ from 'jquery';
-window.$ = window.jQuery = $;
 
-import './fullpage';
+import './fullPage';
 import './swiper_custom';
 import './custom';
 
