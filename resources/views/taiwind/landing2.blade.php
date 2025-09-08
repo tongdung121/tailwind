@@ -54,19 +54,34 @@
                                     sections.
                                 </p>
                             </div>
-                            <div class="w-3/5 swiper mySwiperFull mx-auto tw-right">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('images/1.webp') }}" class="image" alt="">
+                            <div class="w-3/5 relative">
+                                <div class="swiper mySwiperFull w-full ml-auto">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('images/1.webp') }}" class="image" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="{{ asset('images/2.jpg') }}" class="image" alt="">
+                                        </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="{{ asset('images/2.jpg') }}" class="image" alt="">
+
+                                    <!-- Nút điều hướng -->
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                                <!-- Ảnh nhỏ (thumbnail) -->
+                                <div class="swiper mySwiperThumbs h-[100px] !absolute bottom-2 left-0 right-0 mx-auto">
+                                    <div class="swiper-wrapper flex items-center justify-center gap-2">
+                                        <div class="swiper-slide !w-[100px] !h-[100px]">
+                                            <img src="{{ asset('images/1.webp') }}" class="w-full h-full rounded"
+                                                alt="">
+                                        </div>
+                                        <div class="swiper-slide !w-[100px] !h-[100px]">
+                                            <img src="{{ asset('images/2.jpg') }}" class="w-full h-full rounded"
+                                                alt="">
+                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- Nút điều hướng -->
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
                             </div>
                         </div>
                     </div>
