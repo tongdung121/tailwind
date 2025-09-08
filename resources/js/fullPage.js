@@ -52,14 +52,14 @@ $(document).ready(function () {
             },
         });
     }
-
+    const headerHeight = document.querySelector('#header').offsetHeight;
     if (fullPage2.length) {
         new fullpage('#fullpage2', {
             licenseKey: 'gplv3-license', // 🔑 thêm dòng này
             css3: true,
             autoScrolling: true,
             fitToSection: true,
-            fitToSectionDelay: 1000,
+            fitToSectionDelay: 2000,
             scrollBar: false, // ẩn thanh scrollbar
             scrollOverflow: false,
             scrollOverflowReset: false,
@@ -81,7 +81,15 @@ $(document).ready(function () {
             afterRender: function () {
                 setTimeout(() => {
                     resizeSections();
+
                 }, 1000);
+                setTimeout(() => {
+                    $("#loading").css("display", "none");
+                }, 3500);
+                window.addEventListener('resize', () => {
+                    $("#loading").css("display", "none");
+                });
+
                 new Swiper(".mySwiperFull", {
                     loop: true,
                     speed: 1500,
@@ -98,14 +106,33 @@ $(document).ready(function () {
                         prevEl: '.swiper-button-prev',
                     },
                 });
+
             },
             afterResize: function () {
             },
+            credits: { enabled: false, label: 'Made with fullPage.js', position: 'right' },
+
+            // Events
+            beforeLeave: function (origin, destination, direction, trigger) { },
+            onLeave: function (origin, destination, direction, trigger) {
+                if (direction === 'down') {
+                    $('.content').css('margin-top', '0');
+                } else {
+                    $('.content').css('margin-top', `${headerHeight}px`);
+                }
+            },
+            afterLoad: function (origin, destination, direction, trigger) {
+            },
+            afterResize: function (width, height) { },
+            afterReBuild: function () { },
+            afterResponsive: function (isResponsive) { },
+            afterSlideLoad: function (section, origin, destination, direction, trigger) { },
+            onSlideLeave: function (section, origin, destination, direction, trigger) { },
+            onScrollOverflow: function (section, slide, position, direction) { }
         });
     }
 
     function resizeSections() {
-        const headerHeight = document.querySelector('#header').offsetHeight;
         const vh = window.innerHeight;
         const newHeight = vh - headerHeight;
 

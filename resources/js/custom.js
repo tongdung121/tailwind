@@ -16,4 +16,4 @@ elements.forEach(element => {
 
 // lắng nghe sự kiện thay đổi kích thước cửa sổ để cập nhật lại chiều rộng
 const imageW = document.querySelector('.image');
-console.log(imageW);
+// console.log(imageW);
