@@ -87,7 +87,13 @@
                     </div>
                 </div>
             </div>
-
+            <div class="swiper-slide">
+                <footer id="footer" class="footer fixed bottom-0 w-full">
+                    <div class="flex items-center justify-center bg-black text-white p-8">
+                        <h2>footer</h2>
+                    </div>
+                </footer>
+            </div>
         </div>
         <!-- Pagination -->
         {{-- <div class="swiper-pagination"></div> --}}
