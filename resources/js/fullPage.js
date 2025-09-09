@@ -52,8 +52,9 @@ $(document).ready(function () {
             },
         });
     }
-    const headerHeight = document.querySelector('#header').offsetHeight;
+
     if (fullPage2.length) {
+        const headerHeight = document.querySelector('#header').offsetHeight;
         new fullpage('#fullpage2', {
             licenseKey: 'gplv3-license', // 🔑 thêm dòng này
             css3: false,
@@ -144,23 +145,22 @@ $(document).ready(function () {
             onSlideLeave: function (section, origin, destination, direction, trigger) { },
             onScrollOverflow: function (section, slide, position, direction) { }
         });
+
+        function resizeSections() {
+            const vh = window.innerHeight;
+            const newHeight = vh - headerHeight;
+
+            document.querySelectorAll('.section').forEach((section, index) => {
+                section.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
+                // Tìm phần tử con có class "image"
+                const imageEls = section.querySelectorAll('.image');
+                if (imageEls.length) {
+                    const ratio = 1152 / newHeight;
+                    imageEls.forEach(imageEl => {
+                        imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                    });
+                }
+            });
+        }
     }
-
-    function resizeSections() {
-        const vh = window.innerHeight;
-        const newHeight = vh - headerHeight;
-
-        document.querySelectorAll('.section').forEach((section, index) => {
-            section.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
-            // Tìm phần tử con có class "image"
-            const imageEls = section.querySelectorAll('.image');
-            if (imageEls.length) {
-                const ratio = 1152 / newHeight;
-                imageEls.forEach(imageEl => {
-                    imageEl.style.setProperty('aspect-ratio', ratio, 'important');
-                });
-            }
-        });
-    }
-
 });

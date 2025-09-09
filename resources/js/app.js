@@ -1,8 +1,8 @@
 import './bootstrap';
 
 import './fullPage';
-import './swiper_custom';
 import './custom';
-
+import './swiper_fullpage';
+import './swiper_custom';
 
 
