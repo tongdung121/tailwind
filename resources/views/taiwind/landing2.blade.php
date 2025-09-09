@@ -55,7 +55,7 @@
                                 </p>
                             </div>
                             <div class="w-3/5 relative">
-                                <div class="swiper mySwiperFull w-full ml-auto">
+                                <div class="swiper mySwiperFull mx-auto">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img src="{{ asset('images/1.webp') }}" class="image" alt="">
