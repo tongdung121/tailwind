@@ -83,15 +83,17 @@ const header = document.getElementById("header");
 if (header) {
     const headerHeight = header.offsetHeight;
     const mySwiperOuter = document.querySelector('.mySwiperOuter')
-    mySwiperOuter.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
-    const imageEls = mySwiperOuter.querySelectorAll('.image');
-    console.log('image: ', imageEls)
-    const vh = window.innerHeight;
-    const newHeight = vh - headerHeight;
-    if (imageEls.length) {
-        const ratio = 1152 / newHeight;
-        imageEls.forEach(imageEl => {
-            imageEl.style.setProperty('aspect-ratio', ratio, 'important');
-        });
+    if (mySwiperOuter) {
+        mySwiperOuter.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
+        const imageEls = mySwiperOuter.querySelectorAll('.image');
+        const vh = window.innerHeight;
+        const newHeight = vh - headerHeight;
+        if (imageEls.length) {
+            const ratio = 1152 / newHeight;
+            imageEls.forEach(imageEl => {
+                imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+            });
+        }
     }
+
 }

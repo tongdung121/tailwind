@@ -9,6 +9,7 @@ Route::get('/landing', [TaiwindController::class, 'landing'])->name('taiwind.lan
 Route::get('/landing2', [TaiwindController::class, 'landing2'])->name('taiwind.landing2');
 Route::get('/landing3', [TaiwindController::class, 'landing3'])->name('taiwind.landing3');
 Route::get('/landing4', [TaiwindController::class, 'landing4'])->name('taiwind.landing4');
+Route::get('/landing5', [TaiwindController::class, 'landing5'])->name('taiwind.landing5');
 
 Route::domain('vini.test')->group(function () {
     Route::get('/', function () {
