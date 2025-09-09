@@ -10,7 +10,10 @@
 </head>
 
 <body class="m-0 p-0">
-
+    <div id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
     <!-- Swiper container -->
     <div class="swiper mySwiperOuter h-screen w-screen">
         <div class="swiper-wrapper">
