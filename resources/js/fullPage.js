@@ -83,33 +83,32 @@ $(document).ready(function () {
                 }, 1000);
                 setTimeout(() => {
                     $("#loading").css("display", "none");
+                    const swiperThumbs = new Swiper(".mySwiperThumbs", {
+                        loop: true,
+                        spaceBetween: 10,
+                        slidesPerView: 4,
+                        freeMode: true,
+                        watchSlidesProgress: true,
+                    });
+                    new Swiper(".mySwiperFull", {
+                        loop: true,
+                        speed: 1500,
+                        //effect: 'fade', // 👈 mờ mượt thay vì lướt cứng
+                        fadeEffect: {
+                            crossFade: true, // 👈 chuyển mượt giữa ảnh cũ và mới
+                        },
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        thumbs: {
+                            swiper: swiperThumbs,
+                        },
+                    });
                 }, 3500);
                 window.addEventListener('resize', () => {
                     $("#loading").css("display", "none");
                 });
-
-                const swiperThumbs = new Swiper(".mySwiperThumbs", {
-                    spaceBetween: 10,
-                    slidesPerView: 4,   // 👉 số ảnh nhỏ tối đa hiển thị
-                    freeMode: true,
-                    watchSlidesProgress: true,
-                });
-                new Swiper(".mySwiperFull", {
-                    loop: true,
-                    speed: 1500,
-                    //effect: 'fade', // 👈 mờ mượt thay vì lướt cứng
-                    fadeEffect: {
-                        crossFade: true, // 👈 chuyển mượt giữa ảnh cũ và mới
-                    },
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    },
-                    thumbs: {
-                        swiper: swiperThumbs,
-                    },
-                });
-
             },
             afterResize: function () {
             },
