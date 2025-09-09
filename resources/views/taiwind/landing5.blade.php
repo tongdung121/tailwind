@@ -70,7 +70,7 @@
                             <div class="swiper-button-prev"></div>
                         </div>
                         <!-- Thumbs -->
-                        <div class="swiper mySwiperThumbs1 h-[100px] absolute bottom-2 left-0 right-0 mx-auto">
+                        <div class="swiper mySwiperThumbs1 h-[100px] !absolute bottom-1 left-0 right-0 mx-auto">
                             <div class="swiper-wrapper flex items-center justify-center gap-2">
                                 <div class="swiper-slide !w-[100px] !h-[100px]">
                                     <img src="{{ asset('images/1.webp') }}" class="image rounded" alt="">
@@ -90,7 +90,7 @@
 
         </div>
         <!-- Pagination -->
-        <div class="swiper-pagination"></div>
+        {{-- <div class="swiper-pagination"></div> --}}
     </div>
 
 </body>
