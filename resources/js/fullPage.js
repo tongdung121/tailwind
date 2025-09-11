@@ -1,5 +1,4 @@
-import $ from 'jquery';
-window.$ = window.jQuery = $;
+import './jquery.js';
 import fullpage from 'fullpage.js';
 import 'fullpage.js/dist/fullpage.css';
 import Swiper from 'swiper/bundle';
