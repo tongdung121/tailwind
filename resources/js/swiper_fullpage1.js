@@ -48,6 +48,7 @@ document.querySelectorAll(".text-scrollable").forEach((box) => {
 });
 
 const header = document.getElementById("header");
+const screenWidth = window.innerWidth;
 if (header) {
     const headerHeight = header.offsetHeight;
     const mySwiperOuter1 = document.querySelector('.mySwiperOuter1')
@@ -58,19 +59,43 @@ if (header) {
         if (colLeft) {
             colLeft.style.height = `calc(100vh - ${headerHeight}px)`;
         }
-        const textScrollables = mySwiperOuter1.querySelectorAll('.text-scrollable');
-        if (textScrollables.length) {
-            let maxHeight = newHeight - 140; // padding
-            textScrollables.forEach(textScrollable => {
-                textScrollable.style.maxHeight = `${maxHeight}px`;
-            });
-        }
+        let imageHeight = 0;
         const imageEls = mySwiperOuter1.querySelectorAll('.image');
         if (imageEls.length) {
-            const rightColWidth = mySwiperOuter1.querySelector('.right-col').offsetWidth;
-            const ratio = rightColWidth / newHeight;
-            imageEls.forEach(imageEl => {
-                imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+            if (screenWidth > 768) {
+                const rightColWidth = mySwiperOuter1.querySelector('.right-col').offsetWidth;
+                const ratio = rightColWidth / newHeight;
+                imageEls.forEach(imageEl => {
+                    imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                });
+            } else {
+                const ratio = 440 / 559;
+                imageEls.forEach(imageEl => {
+                    imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                });
+                const imageEl = mySwiperOuter1.querySelector('.image-mobile');
+                if (imageEl) {
+                    imageHeight = imageEl.offsetHeight;
+                }
+            }
+        }
+        const textScrollables = mySwiperOuter1.querySelectorAll('.text-scrollable');
+        if (textScrollables.length) {
+            let maxHeight = 0;
+            if (screenWidth <= 768) {
+
+                setTimeout(() => {
+                    maxHeight = newHeight - imageHeight - 140; // padding
+                    textScrollables.forEach(textScrollable => {
+                        textScrollable.style.maxHeight = `${maxHeight}px`;
+                    });
+                }, 1500);
+
+            } else {
+                maxHeight = newHeight - 140; // padding
+            }
+            textScrollables.forEach(textScrollable => {
+                textScrollable.style.maxHeight = `${maxHeight}px`;
             });
         }
     }

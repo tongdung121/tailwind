@@ -24,11 +24,12 @@
 
             <!-- Section 1 -->
             <div class="swiper-slide">
-                <div class="flex">
+                <div class="flex resolver">
                     <div class="w-3/5 right-col">
-                        <img src="{{ asset('images/1.webp') }}" class="image h-full" alt="">
+                        <img src="{{ asset('images/1.webp') }}" class="image  image-desktop" alt="">
+                        <img src="{{ asset('images/mo_1.jpg') }}" class="image  image-mobile" alt="">
                     </div>
-                    <div class="w-2/5 flex flex-col justify-center p-8">
+                    <div class="w-2/5 p-8 left-col">
                         <h2 class="text-4xl font-bold mb-4">Section 1</h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -36,12 +37,11 @@
                         </p>
                     </div>
                 </div>
-
             </div>
 
             <!-- Section 2 (scrollable text) -->
             <div class="swiper-slide">
-                <div class="flex w-full">
+                <div class="flex w-full resolver turned">
                     <div class="w-2/5 p-8 left-col relative">
                         <h2 class="text-4xl font-bold mb-4">Scrollable Text</h2>
                         <p class="mb-2 overflow-y-auto text-scrollable">
@@ -50,16 +50,17 @@
                             @endfor
                         </p>
                     </div>
-                    <div class="w-3/5">
-                        <img src="{{ asset('images/2.jpg') }}" class="image" alt="">
+                    <div class="w-3/5 right-col">
+                        <img src="{{ asset('images/2.jpg') }}" class="image image-desktop" alt="">
+                        <img src="{{ asset('images/mo_2.jpg') }}" class="image image-mobile" alt="">
                     </div>
                 </div>
             </div>
 
             <!-- Section 3 (inner swiper + thumbs) -->
             <div class="swiper-slide">
-                <div class="flex w-full">
-                    <div class="w-3/5 relative">
+                <div class="flex w-full resolver">
+                    <div class="w-3/5 relative right-col">
                         <div class="swiper mySwiperFull1 mx-auto">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -84,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-2/5 flex flex-col justify-center p-8">
+                    <div class="w-2/5 flex flex-col justify-center p-8 left-col">
                         <h2 class="text-4xl font-bold mb-4">Gallery</h2>
                         <p>Inner swiper with thumbnails.</p>
                     </div>

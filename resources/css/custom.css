@@ -75,3 +75,33 @@
 .swiper-slide-thumb-active img {
     @apply border-3 border-blue-500 rounded;
 }
+
+.image-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .image-desktop {
+        display: none;
+    }
+
+    .image-mobile {
+        display: block;
+    }
+
+    .resolver {
+        flex-direction: column;
+        /* gap: 20px; */
+    }
+
+    .right-col, .left-col {
+        width: 100% !important;
+    }
+
+    .resolver.turned .left-col {
+        order: 2;
+    }
+    .resolver.turned .right-col {
+        order: 1;
+    }
+}
