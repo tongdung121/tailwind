@@ -13,7 +13,8 @@ const outerSwiper = new Swiper(".mySwiperOuter", {
 });
 
 setTimeout(() => {
-    $("#loading").css("display", "none");
+    let loading = document.getElementById('loading');
+    loading.style.display = 'none';
     const swiperThumbs3 = new Swiper(".mySwiperThumbs3", {
         spaceBetween: 10,
         slidesPerView: 4,   // 👉 số ảnh nhỏ tối đa hiển thị

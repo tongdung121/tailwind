@@ -35,6 +35,11 @@ new Swiper(".mySwiperFull1", {
     },
 });
 
+setTimeout(() => {
+    let loading = document.getElementById('loading');
+    loading.style.display = 'none';
+}, 3500);
+
 // Handle scrollable text
 document.querySelectorAll(".text-scrollable").forEach((box) => {
     box.addEventListener("mouseenter", () => {

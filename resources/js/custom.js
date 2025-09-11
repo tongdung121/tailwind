@@ -18,7 +18,3 @@ elements.forEach(element => {
 const imageW = document.querySelector('.image');
 // console.log(imageW);
 
-setTimeout(() => {
-    let loading = document.getElementById('loading');
-    loading.style.display = 'none';
-}, 3500);
