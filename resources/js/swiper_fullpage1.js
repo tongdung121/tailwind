@@ -69,7 +69,7 @@ if (header) {
                     imageEl.style.setProperty('aspect-ratio', ratio, 'important');
                 });
             } else {
-                const ratio = 440 / 559;
+                const ratio = 440 / (newHeight * 0.71);
                 imageEls.forEach(imageEl => {
                     imageEl.style.setProperty('aspect-ratio', ratio, 'important');
                 });
@@ -83,14 +83,12 @@ if (header) {
         if (textScrollables.length) {
             let maxHeight = 0;
             if (screenWidth <= 768) {
-
                 setTimeout(() => {
                     maxHeight = newHeight - imageHeight - 129; // padding
                     textScrollables.forEach(textScrollable => {
                         textScrollable.style.maxHeight = `${maxHeight}px`;
                     });
                 }, 1500);
-
             }
             maxHeight = newHeight - 140; // padding
             textScrollables.forEach(textScrollable => {
