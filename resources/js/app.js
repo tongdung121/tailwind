@@ -1,7 +1,7 @@
 import './bootstrap';
 
 const urlPathname = window.location.pathname;
-const number = urlPathname.substring(urlPathname.length - 1); // lấy phần ky tự cuối cùng của đường dẫn
+const number = urlPathname.substring(urlPathname.length - 1); // lấy ký tự cuối cùng của đường dẫn
 
 if (number && !isNaN(number)) {
     if (number === '1' || number === '2') {
