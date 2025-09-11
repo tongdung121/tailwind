@@ -155,7 +155,8 @@ $(document).ready(function () {
                 // Tìm phần tử con có class "image"
                 const imageEls = section.querySelectorAll('.image');
                 if (imageEls.length) {
-                    const ratio = 1152 / newHeight;
+                    const rightColWidth = section.querySelector('.right-col').offsetWidth;
+                    const ratio = rightColWidth / newHeight;
                     imageEls.forEach(imageEl => {
                         imageEl.style.setProperty('aspect-ratio', ratio, 'important');
                     });

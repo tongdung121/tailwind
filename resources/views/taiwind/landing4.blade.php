@@ -30,7 +30,7 @@
                     <!-- Section 1 -->
                     <div class="swiper-slide">
                         <div class="flex w-full">
-                            <div class="w-3/5">
+                            <div class="w-3/5 right-col">
                                 <img src="{{ asset('images/1.webp') }}" class="image" alt="">
                             </div>
                             <div class="w-2/5 flex flex-col justify-center p-8">

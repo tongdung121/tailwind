@@ -28,7 +28,7 @@
                 <div id="fullpage2">
                     <div class="section">
                         <div class="flex w-full">
-                            <div class="w-3/5">
+                            <div class="w-3/5 right-col">
                                 <img src="{{ asset('images/1.webp') }}" class="image" alt="">
                             </div>
                             <div class="w-2/5 flex flex-col justify-center p-8">
@@ -54,7 +54,7 @@
                                     sections.
                                 </p>
                             </div>
-                            <div class="w-3/5 relative">
+                            <div class="w-3/5 relative right-col">
                                 <div class="swiper mySwiperFull mx-auto">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">

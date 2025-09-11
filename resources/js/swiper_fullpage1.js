@@ -52,11 +52,23 @@ if (header) {
     const headerHeight = header.offsetHeight;
     const mySwiperOuter1 = document.querySelector('.mySwiperOuter1')
     if (mySwiperOuter1) {
-        const imageEls = mySwiperOuter1.querySelectorAll('.image');
         const vh = window.innerHeight;
         const newHeight = vh - headerHeight;
+        const colLeft = mySwiperOuter1.querySelector('.left-col');
+        if (colLeft) {
+            colLeft.style.height = `calc(100vh - ${headerHeight}px)`;
+        }
+        const textScrollables = mySwiperOuter1.querySelectorAll('.text-scrollable');
+        if (textScrollables.length) {
+            let maxHeight = newHeight - 140; // padding
+            textScrollables.forEach(textScrollable => {
+                textScrollable.style.maxHeight = `${maxHeight}px`;
+            });
+        }
+        const imageEls = mySwiperOuter1.querySelectorAll('.image');
         if (imageEls.length) {
-            const ratio = 1152 / newHeight;
+            const rightColWidth = mySwiperOuter1.querySelector('.right-col').offsetWidth;
+            const ratio = rightColWidth / newHeight;
             imageEls.forEach(imageEl => {
                 imageEl.style.setProperty('aspect-ratio', ratio, 'important');
             });

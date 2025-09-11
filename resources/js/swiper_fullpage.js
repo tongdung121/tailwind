@@ -80,20 +80,32 @@ document.querySelectorAll('.text-scrollable').forEach(el => {
 })
 
 const header = document.getElementById("header");
+const mySwiperOuter = document.querySelector('.mySwiperOuter');
+
+const vh = window.innerHeight;
 if (header) {
     const headerHeight = header.offsetHeight;
-    const mySwiperOuter = document.querySelector('.mySwiperOuter')
     if (mySwiperOuter) {
         mySwiperOuter.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
-        const imageEls = mySwiperOuter.querySelectorAll('.image');
-        const vh = window.innerHeight;
         const newHeight = vh - headerHeight;
+        const imageEls = mySwiperOuter.querySelectorAll('.image');
         if (imageEls.length) {
-            const ratio = 1152 / newHeight;
+            const rightColWidth = mySwiperOuter.querySelector('.right-col').offsetWidth;
+            const ratio = rightColWidth / newHeight;
             imageEls.forEach(imageEl => {
                 imageEl.style.setProperty('aspect-ratio', ratio, 'important');
             });
         }
     }
-
+} else {
+    if (mySwiperOuter) {
+        const imageEls = mySwiperOuter.querySelectorAll('.image');
+        if (imageEls.length) {
+            const rightColWidth = mySwiperOuter.querySelector('.right-col').offsetWidth;
+            const ratio = rightColWidth / vh;
+            imageEls.forEach(imageEl => {
+                imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+            });
+        }
+    }
 }

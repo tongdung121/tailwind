@@ -9,7 +9,10 @@
 </head>
 
 <body class="m-0 p-0">
-
+    <div id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 h-[115px] bg-white shadow z-50 flex items-center px-8">
         <h1 class="text-2xl font-bold">My Landing</h1>
@@ -22,8 +25,8 @@
             <!-- Section 1 -->
             <div class="swiper-slide">
                 <div class="flex">
-                    <div class="w-3/5">
-                        <img src="{{ asset('images/1.webp') }}" class="image" alt="">
+                    <div class="w-3/5 right-col">
+                        <img src="{{ asset('images/1.webp') }}" class="image h-full" alt="">
                     </div>
                     <div class="w-2/5 flex flex-col justify-center p-8">
                         <h2 class="text-4xl font-bold mb-4">Section 1</h2>
@@ -39,9 +42,9 @@
             <!-- Section 2 (scrollable text) -->
             <div class="swiper-slide">
                 <div class="flex w-full">
-                    <div class="w-2/5 p-8 ">
+                    <div class="w-2/5 p-8 left-col relative">
                         <h2 class="text-4xl font-bold mb-4">Scrollable Text</h2>
-                        <p class="mb-2 overflow-y-auto h-[700px] text-scrollable">
+                        <p class="mb-2 overflow-y-auto text-scrollable">
                             @for ($i = 0; $i < 50; $i++)
                                 This is line {{ $i }}. Lorem ipsum dolor sit amet.<br>
                             @endfor
