@@ -19,9 +19,9 @@ if (number && !isNaN(number)) {
         import('./swiper_fullpage1.js').then(() => {
             console.log("Swiper swiper_fullpage1.js loaded!");
         });
-    } else {
-        console.log("No matching number found.");
     }
+} else {
+    console.log("No matching number found.");
 }
 
 import './custom';
