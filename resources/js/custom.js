@@ -17,3 +17,8 @@ elements.forEach(element => {
 // lắng nghe sự kiện thay đổi kích thước cửa sổ để cập nhật lại chiều rộng
 const imageW = document.querySelector('.image');
 // console.log(imageW);
+
+setTimeout(() => {
+    let loading = document.getElementById('loading');
+    loading.style.display = 'none';
+}, 3500);
