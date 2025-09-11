@@ -70,6 +70,7 @@ if (header) {
                 });
             } else {
                 const ratio = 440 / (newHeight * 0.71);
+                console.log('ratio', ratio);
                 imageEls.forEach(imageEl => {
                     imageEl.style.setProperty('aspect-ratio', ratio, 'important');
                 });
@@ -84,7 +85,7 @@ if (header) {
             let maxHeight = 0;
             if (screenWidth <= 768) {
                 setTimeout(() => {
-                    maxHeight = newHeight - imageHeight - 129; // padding
+                    maxHeight = newHeight - imageHeight - 103; // padding
                     textScrollables.forEach(textScrollable => {
                         textScrollable.style.maxHeight = `${maxHeight}px`;
                     });
