@@ -85,15 +85,14 @@ if (header) {
             if (screenWidth <= 768) {
 
                 setTimeout(() => {
-                    maxHeight = newHeight - imageHeight - 140; // padding
+                    maxHeight = newHeight - imageHeight - 129; // padding
                     textScrollables.forEach(textScrollable => {
                         textScrollable.style.maxHeight = `${maxHeight}px`;
                     });
                 }, 1500);
 
-            } else {
-                maxHeight = newHeight - 140; // padding
             }
+            maxHeight = newHeight - 140; // padding
             textScrollables.forEach(textScrollable => {
                 textScrollable.style.maxHeight = `${maxHeight}px`;
             });
