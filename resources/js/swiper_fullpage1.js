@@ -131,14 +131,14 @@ if (header) {
                     imageEl.style.setProperty('aspect-ratio', ratio, 'important');
                 });
             } else {
-                // const ratio = screenWidth / (newHeight * 0.71);
-                // imageEls.forEach(imageEl => {
-                //     imageEl.style.setProperty('aspect-ratio', ratio, 'important');
-                // });
-                // const imageEl = mySwiperOuter1.querySelector('.image-mobile');
-                // if (imageEl) {
-                //     imageHeight = imageEl.offsetHeight;
-                // }
+                const ratio = screenWidth / (newHeight * 0.6);
+                imageEls.forEach(imageEl => {
+                    imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                });
+                const imageEl = mySwiperOuter1.querySelector('.image-mobile');
+                if (imageEl) {
+                    imageHeight = imageEl.offsetHeight;
+                }
             }
         }
         const textScrollables = mySwiperOuter1.querySelectorAll('.text-scrollable');
