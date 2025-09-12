@@ -29,8 +29,8 @@
                     <div class="section">
                         <div class="flex w-full resolver">
                             <div class="w-3/5 right-col">
-                                <img src="{{ asset('images/1.webp') }}" class="image  image-desktop" alt="">
-                                <img src="{{ asset('images/mo_1.jpg') }}" class="image  image-mobile" alt="">
+                                <img src="{{ asset('images/1.webp') }}" class="image image-desktop" alt="">
+                                <img src="{{ asset('images/mo_1.jpg') }}" class="image image-mobile" alt="">
                             </div>
                             <div class="w-2/5 left-col p-8">
                                 <h1 class="text-5xl font-bold mb-4">Welcome to Our Landing Page</h1>
@@ -47,7 +47,7 @@
                     <div class="section">
                         <div class="flex w-full resolver turned">
                             <div class="w-2/5 left-col p-8">
-                                <h1 class="text-5xl font-bold mb-4">Welcome to Our Landing Page</h1>
+                                <h1 class="text-5xl font-bold mb-4 title">Welcome to Our Landing Page</h1>
                                 <p class="mb-2 overflow-y-auto text-scrollable">
                                     @for ($i = 0; $i < 50; $i++)
                                         This is line {{ $i }}. Lorem ipsum dolor sit amet.<br>

@@ -95,11 +95,12 @@ if (header) {
                         textScrollable.style.maxHeight = `${maxHeight}px`;
                     });
                 }, 1500);
+            } else {
+                maxHeight = newHeight - 140; // padding
+                textScrollables.forEach(textScrollable => {
+                    textScrollable.style.maxHeight = `${maxHeight}px`;
+                });
             }
-            maxHeight = newHeight - 140; // padding
-            textScrollables.forEach(textScrollable => {
-                textScrollable.style.maxHeight = `${maxHeight}px`;
-            });
         }
     }
 

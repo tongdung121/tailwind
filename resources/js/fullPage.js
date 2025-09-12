@@ -77,6 +77,8 @@ $(document).ready(function () {
             easingcss3: 'ease',
             loopBottom: false,
             loopTop: false,
+            normalScrollElements: '.text-scrollable',
+            normalScrollElementTouchThreshold: 5, // 👈 Cho phép swipe nhỏ bên trong trước khi fullpage cướp quyền
             afterRender: function () {
                 setTimeout(() => {
                     resizeSections();
@@ -165,11 +167,8 @@ $(document).ready(function () {
                         const ratio = 440 / (newHeight * 0.71);
                         imageEls.forEach(imageEl => {
                             imageEl.style.setProperty('aspect-ratio', ratio, 'important');
-                        });
-                        const imageEl = section.querySelector('.image-mobile');
-                        if (imageEl) {
                             imageHeight = imageEl.offsetHeight;
-                        }
+                        });
                     }
                 }
                 const textScrollables = section.querySelectorAll('.text-scrollable');
@@ -182,11 +181,12 @@ $(document).ready(function () {
                                 textScrollable.style.maxHeight = `${maxHeight}px`;
                             });
                         }, 1500);
+                    } else {
+                        maxHeight = newHeight - 140; // padding
+                        textScrollables.forEach(textScrollable => {
+                            textScrollable.style.maxHeight = `${maxHeight}px`;
+                        });
                     }
-                    maxHeight = newHeight - 140; // padding
-                    textScrollables.forEach(textScrollable => {
-                        textScrollable.style.maxHeight = `${maxHeight}px`;
-                    });
                 }
             });
         }
