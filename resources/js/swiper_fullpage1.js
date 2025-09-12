@@ -41,16 +41,32 @@ setTimeout(() => {
 }, 3500);
 
 // Handle scrollable text
+// Chọn tất cả box có thể scroll
 document.querySelectorAll(".text-scrollable").forEach((box) => {
+    // Khi bắt đầu chạm vào vùng scrollable
+    box.addEventListener("touchstart", () => {
+        if (box.scrollHeight > box.clientHeight) {
+            outerSwiper.allowTouchMove = false; // ⛔ chặn Swiper bắt vuốt
+        }
+    });
+
+    // Khi ngừng chạm
+    box.addEventListener("touchend", () => {
+        outerSwiper.allowTouchMove = true; // ✅ bật lại để chuyển section
+    });
+
+    // Trường hợp desktop (chuột)
     box.addEventListener("mouseenter", () => {
         if (box.scrollHeight > box.clientHeight) {
             outerSwiper.mousewheel.disable();
         }
     });
+
     box.addEventListener("mouseleave", () => {
         outerSwiper.mousewheel.enable();
     });
 });
+
 
 const header = document.getElementById("header");
 const screenWidth = window.innerWidth;
