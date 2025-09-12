@@ -131,7 +131,7 @@ if (header) {
                     imageEl.style.setProperty('aspect-ratio', ratio, 'important');
                 });
             } else {
-                const ratio = 440 / (newHeight * 0.71);
+                const ratio = screenWidth / (newHeight * 0.71);
                 imageEls.forEach(imageEl => {
                     imageEl.style.setProperty('aspect-ratio', ratio, 'important');
                 });

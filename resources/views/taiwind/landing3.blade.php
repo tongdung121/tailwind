@@ -20,7 +20,7 @@
 
             <!-- Section 1 -->
             <div class="swiper-slide">
-                <div class="flex w-full">
+                <div class="flex w-full resolver turned">
                     <div class="w-3/5 right-col">
                         <img src="{{ asset('images/1.webp') }}" class="image" alt="">
                     </div>
@@ -38,14 +38,13 @@
 
             <!-- Section 2 -->
             <div class="swiper-slide">
-                <div class="flex w-full">
+                <div class="flex w-full resolver turned">
                     <div class="w-2/5 flex flex-col justify-center p-8">
                         <h1 class="text-5xl font-bold mb-4">Welcome to Our Landing Page</h1>
-                        <p class="mb-6 overflow-y-auto h-[500px] text-scrollable">
-                            This is a sample landing page using Tailwind CSS and fullPage.js for smooth
-                            scrolling
-                            between
-                            sections.
+                        <p class="mb-2 overflow-y-auto text-scrollable" data-scrollable="true">
+                            @for ($i = 0; $i < 50; $i++)
+                                This is line {{ $i }}. Lorem ipsum dolor sit amet.<br>
+                            @endfor
                         </p>
                     </div>
                     <div class="w-3/5 relative">
