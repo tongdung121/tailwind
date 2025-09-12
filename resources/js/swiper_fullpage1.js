@@ -40,33 +40,37 @@ setTimeout(() => {
     loading.style.display = 'none';
 }, 3500);
 
-// Handle scrollable text
-// Chọn tất cả box có thể scroll
 document.querySelectorAll(".text-scrollable").forEach((box) => {
-    // Khi bắt đầu chạm vào vùng scrollable
-    box.addEventListener("touchstart", () => {
-        if (box.scrollHeight > box.clientHeight) {
-            outerSwiper.allowTouchMove = false; // ⛔ chặn Swiper bắt vuốt
-        }
-    });
-
-    // Khi ngừng chạm
-    box.addEventListener("touchend", () => {
-        outerSwiper.allowTouchMove = true; // ✅ bật lại để chuyển section
-    });
-
-    // Trường hợp desktop (chuột)
+    // Desktop
     box.addEventListener("mouseenter", () => {
         if (box.scrollHeight > box.clientHeight) {
             outerSwiper.mousewheel.disable();
         }
     });
-
     box.addEventListener("mouseleave", () => {
         outerSwiper.mousewheel.enable();
     });
-});
 
+    // Mobile
+    box.addEventListener("touchstart", () => {
+        if (box.scrollHeight > box.clientHeight) {
+            outerSwiper.allowTouchMove = false;
+        }
+    });
+
+    box.addEventListener("touchmove", () => {
+        const atTop = box.scrollTop === 0;
+        const atBottom = Math.ceil(box.scrollTop + box.clientHeight) >= box.scrollHeight;
+
+        // Nếu còn cuộn được bên trong → khóa outerSwiper
+        if (!atTop && !atBottom) {
+            outerSwiper.allowTouchMove = false;
+        } else {
+            // Nếu cuộn tới đầu hoặc cuối → bật outerSwiper
+            outerSwiper.allowTouchMove = true;
+        }
+    });
+});
 
 const header = document.getElementById("header");
 const screenWidth = window.innerWidth;
