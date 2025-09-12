@@ -26,8 +26,8 @@
             <div class="swiper-slide">
                 <div class="flex resolver">
                     <div class="w-3/5 right-col">
-                        <img src="{{ asset('images/1.webp') }}" class="image  image-desktop" alt="">
-                        <img src="{{ asset('images/mo_1.jpg') }}" class="image  image-mobile" alt="">
+                        <img src="{{ asset('images/1.webp') }}" class="image image-desktop" alt="">
+                        <img src="{{ asset('images/mo_1.jpg') }}" class="image image-mobile" alt="">
                     </div>
                     <div class="w-2/5 p-8 left-col">
                         <h2 class="text-4xl font-bold mb-4">Section 1</h2>

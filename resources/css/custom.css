@@ -91,6 +91,7 @@
 
     .image-mobile {
         display: block;
+        aspect-ratio: 440 / 491;
     }
 
     .resolver {
