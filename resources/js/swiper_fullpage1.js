@@ -40,37 +40,73 @@ setTimeout(() => {
     loading.style.display = 'none';
 }, 3500);
 
-document.querySelectorAll(".text-scrollable").forEach((box) => {
-    // Desktop
-    box.addEventListener("mouseenter", () => {
-        if (box.scrollHeight > box.clientHeight) {
-            outerSwiper.mousewheel.disable();
+// document.querySelectorAll(".text-scrollable").forEach((box) => {
+//     // Desktop
+//     box.addEventListener("mouseenter", () => {
+//         if (box.scrollHeight > box.clientHeight) {
+//             outerSwiper.mousewheel.disable();
+//         }
+//     });
+//     box.addEventListener("mouseleave", () => {
+//         outerSwiper.mousewheel.enable();
+//     });
+
+//     // Mobile
+//     box.addEventListener("touchstart", () => {
+//         if (box.scrollHeight > box.clientHeight) {
+//             outerSwiper.allowTouchMove = false;
+//         }
+//     });
+
+//     box.addEventListener("touchmove", () => {
+//         const atTop = box.scrollTop === 0;
+//         const atBottom = Math.ceil(box.scrollTop + box.clientHeight) >= box.scrollHeight;
+
+//         // Nếu còn cuộn được bên trong → khóa outerSwiper
+//         if (!atTop && !atBottom) {
+//             outerSwiper.allowTouchMove = false;
+//         } else {
+//             // Nếu cuộn tới đầu hoặc cuối → bật outerSwiper
+//             outerSwiper.allowTouchMove = true;
+//         }
+//     });
+// Mobile: chỉ cần xử lý touchstart
+// box.addEventListener("touchstart", () => {
+//     // Nếu nội dung còn scroll được → khóa outerSwiper
+//     if (box.scrollHeight > box.clientHeight) {
+//         outerSwiper.allowTouchMove = false;
+//     } else {
+//         // Nếu không scroll được → bật outerSwiper
+//         outerSwiper.allowTouchMove = true;
+//     }
+// });
+// });
+
+const boxes = document.querySelectorAll(".text-scrollable");
+
+document.addEventListener("touchstart", (e) => {
+    let touchedBox = null;
+
+    boxes.forEach((box) => {
+        if (box.contains(e.target)) {
+            touchedBox = box;
         }
     });
-    box.addEventListener("mouseleave", () => {
-        outerSwiper.mousewheel.enable();
-    });
 
-    // Mobile
-    box.addEventListener("touchstart", () => {
-        if (box.scrollHeight > box.clientHeight) {
-            outerSwiper.allowTouchMove = false;
-        }
-    });
-
-    box.addEventListener("touchmove", () => {
-        const atTop = box.scrollTop === 0;
-        const atBottom = Math.ceil(box.scrollTop + box.clientHeight) >= box.scrollHeight;
-
-        // Nếu còn cuộn được bên trong → khóa outerSwiper
-        if (!atTop && !atBottom) {
-            outerSwiper.allowTouchMove = false;
-        } else {
-            // Nếu cuộn tới đầu hoặc cuối → bật outerSwiper
-            outerSwiper.allowTouchMove = true;
-        }
-    });
+    if (touchedBox && touchedBox.scrollHeight > touchedBox.clientHeight) {
+        // Chạm vào box và box còn scroll → khóa swiper
+        outerSwiper.allowTouchMove = false;
+    } else {
+        // Chạm ngoài box hoặc box không scroll → bật swiper
+        outerSwiper.allowTouchMove = true;
+    }
 });
+
+document.addEventListener("touchend", () => {
+    // Nhấc tay ra → bật lại swiper để chuẩn bị lần vuốt tiếp theo
+    outerSwiper.allowTouchMove = true;
+});
+
 
 const header = document.getElementById("header");
 const screenWidth = window.innerWidth;
