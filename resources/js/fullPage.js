@@ -10,6 +10,19 @@ $(document).ready(function () {
     const fullPage1 = $('#fullpage');
     const fullPage2 = $('#fullpage2');
     const screenWidth = window.innerWidth;
+
+    // Tự động gom tất cả element có data-scrollable="true"
+    const scrollables = Array.from(document.querySelectorAll("[data-scrollable='true']"))
+        .map(el => {
+            // Lấy selector unique cho từng element
+            return el.className.split(" ")
+                .map(cls => "." + cls)
+                .join("");
+        });
+
+    // Kết hợp thành selector chuỗi
+    const normalScrollSelector = scrollables.join(", ");
+
     if (fullPage1.length) {
         new fullpage('#fullpage', {
             licenseKey: 'gplv3-license', // 🔑 thêm dòng này
@@ -26,6 +39,9 @@ $(document).ready(function () {
             sectionSelector: '.section',
             slideSelector: '.slide',
             lazyLoading: true,
+            normalScrollElements: normalScrollSelector,
+            normalScrollElementTouchThreshold: 5, // 👈 Cho phép swipe nhỏ bên trong trước khi fullpage cướp quyền
+            responsiveWidth: '0',
             afterRender: function () {
                 const swiperThumbs = new Swiper(".mySwiperThumbs", {
                     spaceBetween: 10,
@@ -48,6 +64,18 @@ $(document).ready(function () {
                         swiper: swiperThumbs,
                     },
                 });
+
+                scrollables.forEach(selector => {
+                    document.querySelectorAll(selector).forEach(el => {
+                        if (screenWidth > 768)
+                            el.style.setProperty('max-height', '92%', 'important');
+                        else
+                            el.style.setProperty('max-height', '31%', 'important');
+                    });
+                });
+                setTimeout(() => {
+                    $("#loading").css("display", "none");
+                }, 3500);
             },
         });
     }
@@ -77,7 +105,7 @@ $(document).ready(function () {
             easingcss3: 'ease',
             loopBottom: false,
             loopTop: false,
-            normalScrollElements: '.text-scrollable',
+            normalScrollElements: normalScrollSelector,
             normalScrollElementTouchThreshold: 5, // 👈 Cho phép swipe nhỏ bên trong trước khi fullpage cướp quyền
             afterRender: function () {
                 setTimeout(() => {
@@ -191,4 +219,6 @@ $(document).ready(function () {
             });
         }
     }
+
+
 });
