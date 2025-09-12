@@ -91,11 +91,13 @@
 
     .resolver {
         flex-direction: column;
+        height: 100%;
         /* gap: 20px; */
     }
 
     .right-col, .left-col {
         width: 100% !important;
+        height: 100% !important;
     }
 
     .left-col {

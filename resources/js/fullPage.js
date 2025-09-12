@@ -9,7 +9,7 @@ import 'swiper/css/bundle';
 $(document).ready(function () {
     const fullPage1 = $('#fullpage');
     const fullPage2 = $('#fullpage2');
-
+    const screenWidth = window.innerWidth;
     if (fullPage1.length) {
         new fullpage('#fullpage', {
             licenseKey: 'gplv3-license', // 🔑 thêm dòng này
@@ -153,11 +153,39 @@ $(document).ready(function () {
                 section.style.setProperty('height', `calc(100vh - ${headerHeight}px)`, 'important');
                 // Tìm phần tử con có class "image"
                 const imageEls = section.querySelectorAll('.image');
+                let imageHeight = 0;
                 if (imageEls.length) {
-                    const rightColWidth = section.querySelector('.right-col').offsetWidth;
-                    const ratio = rightColWidth / newHeight;
-                    imageEls.forEach(imageEl => {
-                        imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                    if (screenWidth > 768) {
+                        const rightColWidth = section.querySelector('.right-col').offsetWidth;
+                        const ratio = rightColWidth / newHeight;
+                        imageEls.forEach(imageEl => {
+                            imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                        });
+                    } else {
+                        const ratio = 440 / (newHeight * 0.71);
+                        imageEls.forEach(imageEl => {
+                            imageEl.style.setProperty('aspect-ratio', ratio, 'important');
+                        });
+                        const imageEl = section.querySelector('.image-mobile');
+                        if (imageEl) {
+                            imageHeight = imageEl.offsetHeight;
+                        }
+                    }
+                }
+                const textScrollables = section.querySelectorAll('.text-scrollable');
+                if (textScrollables.length) {
+                    let maxHeight = 0;
+                    if (screenWidth <= 768) {
+                        setTimeout(() => {
+                            maxHeight = newHeight - imageHeight - 103; // padding
+                            textScrollables.forEach(textScrollable => {
+                                textScrollable.style.maxHeight = `${maxHeight}px`;
+                            });
+                        }, 1500);
+                    }
+                    maxHeight = newHeight - 140; // padding
+                    textScrollables.forEach(textScrollable => {
+                        textScrollable.style.maxHeight = `${maxHeight}px`;
                     });
                 }
             });
