@@ -43,7 +43,7 @@
             <div class="swiper-slide">
                 <div class="flex w-full resolver turned">
                     <div class="w-2/5 p-8 left-col relative">
-                        <h2 class="text-4xl font-bold mb-4">Scrollable Text</h2>
+                        <h2 class="text-4xl font-bold mb-4 title">Scrollable Text</h2>
                         <p class="mb-2 overflow-y-auto text-scrollable">
                             @for ($i = 0; $i < 50; $i++)
                                 This is line {{ $i }}. Lorem ipsum dolor sit amet.<br>
