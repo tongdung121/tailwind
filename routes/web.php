@@ -4,6 +4,7 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\TaiwindController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', [TaiwindController::class, 'index'])->name('taiwind.index');
 Route::get('/landing1', [TaiwindController::class, 'landing'])->name('taiwind.landing');
 Route::get('/landing2', [TaiwindController::class, 'landing2'])->name('taiwind.landing2');
