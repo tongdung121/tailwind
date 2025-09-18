@@ -1,24 +1,27 @@
 on:
   workflow_dispatch:
-  #push:
-    #branches:
-    #  - master
+    inputs:
+      environment:
+        description: "Chọn môi trường deploy"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - prd
 
 jobs:
-  deploy_dev:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.TAILWIND_SECRET }}
-      - run: ssh devuser@devserver "cd /var/www/laravel && ./deploy.sh develop"
-
-  deploy_prd:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.TAILWIND_SECRET }}
-      - run: ssh prduser@prdserver "cd /var/www/laravel && ./deploy.sh master"
+      - name: Deploy
+        run: |
+          if [ "${{ github.event.inputs.environment }}" = "dev" ]; then
+            ssh devuser@devserver "cd /var/www/laravel && ./deploy.sh develop"
+          else
+            ssh prduser@prdserver "cd /var/www/laravel && ./deploy.sh master"
+          fi
