@@ -37,7 +37,7 @@
                 <div class="w-2/5 left-col p-8">
                     <h1 class="text-5xl font-bold mb-4">Welcome to Our Landing Page</h1>
                     <p class="mb-2 overflow-y-auto text-scrollable" data-scrollable="true">
-                        @for ($i = 0; $i < 50; $i++)
+                        @for ($i = 1; $i <= 50; $i++)
                             This is line {{ $i }}. Lorem ipsum dolor sit amet.<br>
                         @endfor
                     </p>
