@@ -68,7 +68,7 @@ $(document).ready(function () {
                 scrollables.forEach(selector => {
                     document.querySelectorAll(selector).forEach(el => {
                         if (screenWidth > 768)
-                            el.style.setProperty('max-height', '92%', 'important');
+                            el.style.setProperty('max-height', 'calc(100vh - 140px)', 'important');
                         else
                             el.style.setProperty('max-height', '31%', 'important');
                     });
