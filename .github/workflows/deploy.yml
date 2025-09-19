@@ -21,7 +21,7 @@ jobs:
       - name: Deploy
         run: |
           if [ "${{ github.event.inputs.environment }}" = "dev" ]; then
-            ssh devuser@devserver "cd /var/www/laravel && ./deploy.sh develop"
+            ssh root@devserver "cd /var/www/laravel && ./deploy.sh develop"
           else
-            ssh prduser@prdserver "cd /var/www/laravel && ./deploy.sh master"
+            ssh root@prdserver "cd /var/www/laravel && ./deploy.sh master"
           fi
