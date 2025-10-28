@@ -1,8 +1,13 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSwiper);
+} else {
+    initSwiper();
+}
 // Khởi tạo Swiper
-document.addEventListener("DOMContentLoaded", () => {
+function initSwiper() {
     const swiperThumbs = new Swiper(".mySwiperThumbs", {
         spaceBetween: 10,
         slidesPerView: 4,   // 👉 số ảnh nhỏ tối đa hiển thị
@@ -33,4 +38,4 @@ document.addEventListener("DOMContentLoaded", () => {
             swiper: swiperThumbs,
         },
     });
-});
+}
